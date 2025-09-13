@@ -24,11 +24,25 @@
 
         /* Define a subtle blue-to-white gradient for titles and accents */
         .text-gradient-blue {
-            background-image: linear-gradient(to right, #63b3ed, #3b82f6);
+            background-image: linear-gradient(to right, #3b82f6, #ffffff);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             color: transparent;
+            /* Add animation for a subtle effect */
+            animation: pulse-fade 2s infinite ease-in-out alternate;
+        }
+
+        /* Keyframe animation for a subtle pulsing glow on the text */
+        @keyframes pulse-fade {
+            from {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1.01);
+            }
         }
 
         /* Define a hover effect for cards and interactive elements */
@@ -89,18 +103,25 @@
     <main class="pt-24 md:pt-32">
         <!-- Hero Section -->
         <section id="home" class="min-h-screen flex items-center justify-center text-left px-4 md:px-8">
-            <div class="animate-fade-in max-w-4xl mx-auto">
-                <p class="text-lg text-blue-400 mb-2">Hi, my name is</p>
-                <div class="flex items-center space-x-4 mb-4">
-                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-white">
-                        Noor El Deen Ramadan.
-                    </h1>
-                    <img class="w-32 h-32 rounded-full border-2 border-blue-400 object-cover" src="https://raw.githubusercontent.com/NooR-El-Deen-Ramadan/portofolio/main/165521766.jpg" alt="Noor El Deen Ramadan's personal avatar">
+            <div class="animate-fade-in max-w-4xl mx-auto w-full">
+                <!-- Wrapper for the name, subtitle, and image -->
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between">
+                    <!-- Text content (name and subtitle) -->
+                    <div>
+                        <p class="text-lg text-blue-400 mb-2">Hi, my name is</p>
+                        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-gradient-blue">
+                            Noor El Deen Ramadan.
+                        </h1>
+                        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-gradient-blue">
+                            I build apps for mobile.
+                        </h2>
+                    </div>
+                    <!-- Profile picture -->
+                    <div class="mt-8 md:mt-0 md:ml-8 md:pt-16">
+                        <img class="w-32 h-32 rounded-full border-2 border-blue-400 object-cover" src="https://raw.githubusercontent.com/NooR-El-Deen-Ramadan/portofolio/main/165521766.jpg" alt="Noor El Deen Ramadan's personal avatar">
+                    </div>
                 </div>
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-gray-400">
-                    I build apps for mobile.
-                </h2>
-                <p class="text-lg max-w-2xl text-gray-400">
+                <p class="text-lg max-w-2xl text-gray-400 mt-8">
                     I'm a software engineer specializing in building high-quality mobile and web applications. Currently, I'm focused on crafting exceptional user experiences and robust, scalable solutions.
                 </p>
                 <div class="mt-8">
