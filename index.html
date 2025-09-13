@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor El Deen - Software & Flutter Developer</title>
+    <!-- Tailwind CSS CDN for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom styles for gradient text and animations -->
+    <style>
+        /* Import the Inter font family */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Set a dark, professional background color */
+        body {
+            background-color: #0d1222;
+        }
+
+        /* Define a subtle blue-to-white gradient for titles and accents */
+        .text-gradient-blue {
+            background-image: linear-gradient(to right, #63b3ed, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        /* Define a hover effect for cards and interactive elements */
+        .card-hover {
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(60, 150, 255, 0.2);
+        }
+
+        /* Keyframe animation for a smooth fade-in effect */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* Custom style for a fixed navigation blur effect */
+        .glass-nav {
+            background-color: rgba(13, 18, 34, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Styling for a custom message box instead of alert() */
+        .message-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 50;
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+
+    <!-- Custom Message Box -->
+    <div id="message-box" class="message-box bg-red-700 text-white p-4 rounded-lg shadow-xl">
+        <p id="message-text"></p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-40 p-6 glass-nav rounded-b-lg">
+        <div class="flex items-center justify-end space-x-6 lg:space-x-12">
+            <a href="#about" class="text-sm lg:text-base font-medium transition-colors duration-300 hover:text-blue-400"><span class="text-blue-400">01.</span> About</a>
+            <a href="#skills" class="text-sm lg:text-base font-medium transition-colors duration-300 hover:text-blue-400"><span class="text-blue-400">02.</span> Skills</a>
+            <a href="#experience" class="text-sm lg:text-base font-medium transition-colors duration-300 hover:text-blue-400"><span class="text-blue-400">03.</span> Experience</a>
+            <a href="#projects" class="text-sm lg:text-base font-medium transition-colors duration-300 hover:text-blue-400"><span class="text-blue-400">04.</span> Projects</a>
+            <a href="#contact" class="text-sm lg:text-base font-medium transition-colors duration-300 hover:text-blue-400"><span class="text-blue-400">05.</span> Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-24 md:pt-32">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-left px-4 md:px-8">
+            <div class="animate-fade-in max-w-4xl mx-auto">
+                <p class="text-lg text-blue-400 mb-2">Hi, my name is</p>
+                <div class="flex items-center space-x-4 mb-4">
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-white">
+                        Noor El Deen Ramadan.
+                    </h1>
+                    <img class="w-32 h-32 rounded-full border-2 border-blue-400 object-cover" src="https://raw.githubusercontent.com/NooR-El-Deen-Ramadan/portofolio/main/165521766.jpg" alt="Noor El Deen Ramadan's personal avatar">
+                </div>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-gray-400">
+                    I build apps for mobile.
+                </h2>
+                <p class="text-lg max-w-2xl text-gray-400">
+                    I'm a software engineer specializing in building high-quality mobile and web applications. Currently, I'm focused on crafting exceptional user experiences and robust, scalable solutions.
+                </p>
+                <div class="mt-8">
+                    <a href="#projects" class="inline-block px-8 py-3 text-lg font-bold rounded-full transition-all duration-300 border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 shadow-lg hover:shadow-xl">
+                        Check out my work!
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32 px-4 md:px-8 w-full">
+            <div class="animate-fade-in max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-gradient-blue">About Me</h2>
+                <div class="bg-gray-800 rounded-xl p-8 md:p-12 shadow-2xl card-hover">
+                    <p class="text-lg sm:text-xl leading-relaxed text-gray-300">
+                        I don’t just build Flutter apps — I craft pixel-perfect, performance-optimized cross-platform experiences that scale easily and are a joy to maintain. My mix of solid computer-science foundations, hands-on experience with state-management patterns, and a keen eye for UI/UX lets me deliver apps that are not only visually stunning but also robust, secure, and future-ready. Clients choose me because I bridge the gap between clean code and exceptional user experience — turning complex requirements into elegant, production-ready solutions faster and more reliably than most.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 md:py-32 px-4 md:px-8 w-full">
+            <div class="animate-fade-in max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-gradient-blue">My Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Programming Languages -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-gradient-blue">Programming Languages</h3>
+                        <ul class="list-none space-y-2 text-gray-300">
+                            <li><i class="fa-solid fa-code text-blue-400 mr-2"></i>Dart</li>
+                            <li><i class="fa-solid fa-code text-blue-400 mr-2"></i>C++</li>
+                            <li><i class="fa-solid fa-code text-blue-400 mr-2"></i>Java</li>
+                            <li><i class="fa-solid fa-code text-blue-400 mr-2"></i>Python</li>
+                            <li><i class="fa-solid fa-code text-blue-400 mr-2"></i>SQL</li>
+                        </ul>
+                    </div>
+                    <!-- Frameworks & Libraries -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-gradient-blue">Frameworks & Libraries</h3>
+                        <ul class="list-none space-y-2 text-gray-300">
+                            <li><i class="fa-brands fa-flutter text-blue-400 mr-2"></i><i class="fa-solid fa-mobile-screen-button text-blue-400 mr-2"></i>Flutter (Dart)</li>
+                            <li><i class="fa-solid fa-mug-hot text-blue-400 mr-2"></i>JavaFX (Java)</li>
+                            <li><i class="fa-solid fa-gamepad text-blue-400 mr-2"></i>SFML (C++)</li>
+                            <li><i class="fa-solid fa-desktop text-blue-400 mr-2"></i>Tkinter (Python)</li>
+                            <li><i class="fa-solid fa-cubes text-blue-400 mr-2"></i>Qt (C++)</li>
+                        </ul>
+                    </div>
+                    <!-- Cloud & Tools -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-gradient-blue">Cloud & Tools</h3>
+                        <ul class="list-none space-y-2 text-gray-300">
+                            <li><i class="fa-brands fa-google text-blue-400 mr-2"></i>Firebase Integration</li>
+                            <li><i class="fa-solid fa-database text-blue-400 mr-2"></i>Supabase</li>
+                            <li><i class="fa-solid fa-server text-blue-400 mr-2"></i>Postman (API Testing)</li>
+                            <li><i class="fa-brands fa-git-alt text-blue-400 mr-2"></i>Git & GitHub</li>
+                            <li><i class="fa-solid fa-paintbrush text-blue-400 mr-2"></i>Figma (UI/UX)</li>
+                        </ul>
+                    </div>
+                    <!-- Database & Other Skills -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-gradient-blue">Database & Other Skills</h3>
+                        <ul class="list-none space-y-2 text-gray-300">
+                            <li><i class="fa-solid fa-database text-blue-400 mr-2"></i>SQL (MySQL / Oracle)</li>
+                            <li><i class="fa-solid fa-database text-blue-400 mr-2"></i>Hive (Local)</li>
+                            <li><i class="fa-solid fa-brain text-blue-400 mr-2"></i>Machine Learning</li>
+                            <li><i class="fa-solid fa-sitemap text-blue-400 mr-2"></i>Data Structures & Algorithms</li>
+                            <li><i class="fa-solid fa-object-group text-blue-400 mr-2"></i>Object-Oriented Programming</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 md:py-32 px-4 md:px-8 w-full">
+            <div class="animate-fade-in max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-gradient-blue">Experience</h2>
+                <div class="space-y-12">
+                    <!-- Sprints x Microsoft -->
+                    <div class="pb-4 border-b border-gray-700 last:border-b-0">
+                        <h3 class="text-xl font-semibold mb-2 text-gradient-blue">
+                            Sprints × Microsoft – Mobile Development Summer Training
+                        </h3>
+                        <p class="text-sm text-gray-400 mb-2">July – September 2025</p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Intensive hands-on training on Flutter and cross-platform mobile development, covering state management, clean architecture, API integration, Firebase, and Agile sprints. Strengthened my ability to deliver production-ready apps with robust UI/UX through Agile sprints, code reviews, and a capstone project.
+                        </p>
+                    </div>
+
+                    <!-- Digital Egypt Pioneers Initiative -->
+                    <div class="pb-4 border-b border-gray-700 last:border-b-0">
+                        <h3 class="text-xl font-semibold mb-2 text-gradient-blue">
+                            Digital Egypt Pioneers Initiative (DEPI) – Cross-Platform Mobile App Developer Track
+                        </h3>
+                        <p class="text-sm text-gray-400 mb-2">June 2025 – Present</p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Comprehensive program focused on designing, developing, and maintaining high-quality cross-platform mobile applications while strengthening teamwork, problem-solving, and communication skills. As a trainee, I design, develop, and maintain high-quality mobile applications using modern technologies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-32 px-4 md:px-8 w-full">
+            <div class="animate-fade-in max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-gradient-blue">Projects</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Nectar Grocery App -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-2 text-gradient-blue">
+                            Nectar Grocery App (Flutter)
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Built a modern grocery shopping app with Flutter featuring a responsive UI, key e-commerce flows (product browsing, cart management, checkout), and secure user authentication. Focused on clean architecture and smooth performance.
+                        </p>
+                        <a href="https://github.com/NooR-El-Deen-Ramadan/nectar_olnine_grocery" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                            <i class="fa-brands fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                    <!-- Taskati -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-2 text-gradient-blue">
+                            Taskati – Task Management App (Flutter + Hive)
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Developed a task management app using Flutter with a responsive UI and Hive local caching for fast, reliable offline storage. Features include task creation, categorization, reminders, and dark mode.
+                        </p>
+                        <a href="https://github.com/NooR-El-Deen-Ramadan/taskati" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                            <i class="fa-brands fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                    <!-- Bookia Book Store App -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-2 text-gradient-blue">
+                            Bookia Book Store App (Flutter)
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Created a book store app for browsing, searching, and categorizing books. Integrated with a REST API for real-time data and included dynamic search, favorites/wishlist, and user authentication.
+                        </p>
+                        <a href="https://github.com/NooR-El-Deen-Ramadan/" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                            <i class="fa-brands fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                    <!-- Watch-It Platform -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-2 text-gradient-blue">
+                            Watch-It Platform (Java, JavaFX)
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Recreated an entertainment platform in Java, applying OOP principles and JSON handling. Implemented subscription plans and media streaming simulation to mimic a real app experience.
+                        </p>
+                        <a href="https://github.com/NooR-El-Deen-Ramadan/watch-it" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                            <i class="fa-brands fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                    <!-- Mini Wasalny -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-2 text-gradient-blue">
+                            Mini Wasalny (C++, Qt)
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Designed a graph-based desktop app for navigation simulation, featuring pathfinding algorithms (BFS, DFS, Dijkstra) and graph visualization.
+                        </p>
+                        <a href="https://github.com/NooR-El-Deen-Ramadan/Mini-Wasalny" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                            <i class="fa-brands fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                    <!-- Courier Database System -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-2 text-gradient-blue">
+                            Courier Database Management System (SQL)
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Developed a database management system using SQL, PL/SQL, and Oracle Forms to handle and track courier data, demonstrating skills in database design and management.
+                        </p>
+                        <a href="https://github.com/NooR-El-Deen-Ramadan/" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                            <i class="fa-brands fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                    <!-- Other Projects -->
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-2 text-gradient-blue">
+                            Other Projects
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Developed a 2D fighting game, Stick Man Fight (C++, SFML), demonstrating skills in game loops, event handling, and collision detection.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 md:py-32 px-4 md:px-8 w-full">
+            <div class="animate-fade-in max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-gradient-blue">Education</h2>
+                <div class="bg-gray-800 rounded-xl p-8 md:p-12 shadow-2xl card-hover text-center">
+                    <h3 class="text-2xl font-semibold mb-2 text-gradient-blue">Ain Shams University</h3>
+                    <p class="text-lg text-gray-300">Computer Science Student</p>
+                    <p class="text-md text-gray-400 mt-2">Graduation Year: 2027</p>
+                    <p class="text-md text-gray-400">GPA: 3.7</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Idea Generator -->
+        <section id="project-idea" class="py-20 md:py-32 px-4 md:px-8 w-full">
+            <div class="animate-fade-in max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-gradient-blue">✨ Project Idea Generator</h2>
+                <div class="bg-gray-800 rounded-xl p-8 md:p-12 shadow-2xl card-hover">
+                    <p class="text-lg text-gray-300 mb-6">
+                        Need inspiration? Describe a type of project you're interested in, and let's see what the AI can come up with!
+                    </p>
+                    <textarea id="idea-prompt" rows="4" class="w-full p-4 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:border-blue-400 focus:outline-none transition-colors duration-300" placeholder="e.g., A mobile app for gardeners, a web tool for remote teams, a desktop game"></textarea>
+                    <button id="generate-button" class="mt-6 px-8 py-3 text-lg font-bold rounded-full transition-all duration-300 border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 shadow-lg hover:shadow-xl">
+                        ✨ Generate Idea
+                    </button>
+                    <div id="loading-spinner" class="mt-4 hidden">
+                        <i class="fa-solid fa-spinner fa-spin text-blue-400 text-2xl"></i>
+                        <span class="ml-2 text-blue-400">Generating idea...</span>
+                    </div>
+                    <div id="idea-output" class="mt-8 p-6 bg-gray-900 rounded-xl border border-blue-400 text-gray-200 hidden">
+                        <p class="font-semibold text-lg text-gradient-blue mb-2">Here's a project idea for you:</p>
+                        <p id="generated-idea"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="cta" class="py-20 md:py-32 text-center px-4 md:px-8 w-full">
+            <div class="animate-fade-in max-w-4xl mx-auto px-4">
+                <div class="bg-gray-800 rounded-xl p-8 md:p-12 shadow-2xl card-hover">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-gradient-blue">Thanks for Stopping By!</h2>
+                    <p class="text-lg text-gray-300 mb-8">
+                        I am always open to new opportunities and collaborations. Let's build something amazing together.
+                    </p>
+                    <a href="#contact" class="inline-block px-8 py-3 text-lg font-bold rounded-full transition-all duration-300 border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 shadow-lg hover:shadow-xl">
+                        Let's Connect
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 px-4 md:px-8 w-full">
+            <div class="animate-fade-in max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-gradient-blue">Get in Touch</h2>
+                <div class="bg-gray-800 rounded-xl p-8 md:p-12 shadow-2xl card-hover">
+                    <div class="flex flex-col items-center justify-center space-y-4">
+                        <a href="mailto:nooraldeinrmadan@gmail.com" class="flex items-center text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fa-solid fa-envelope mr-3 text-blue-400 text-xl"></i>
+                            <span class="text-blue-400">nooraldeinrmadan@gmail.com</span>
+                        </a>
+                        <a href="tel:+201090109273" class="flex items-center text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fa-solid fa-phone mr-3 text-blue-400 text-xl"></i>
+                            <span class="text-blue-400">+20 1090109273</span>
+                        </a>
+                    </div>
+                    <div class="flex items-center justify-center mt-8 space-x-6">
+                        <a href="https://www.linkedin.com/in/noor-al-deen-ramadan" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fa-brands fa-linkedin-in text-3xl"></i>
+                        </a>
+                        <a href="https://github.com/NooR-El-Deen-Ramadan" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fa-brands fa-github text-3xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 p-4 bg-blue-500 text-white rounded-full shadow-lg transition-all duration-300 opacity-0 transform translate-y-4 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript for dynamic features -->
+    <script>
+        // API key and URL for the Gemini API
+        const API_KEY = "";
+        const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=" + API_KEY;
+
+        // Custom message box function to avoid alert()
+        function showMessage(text, isError = false) {
+            const messageBox = document.getElementById('message-box');
+            const messageText = document.getElementById('message-text');
+            messageText.textContent = text;
+            messageBox.style.display = 'block';
+            if (isError) {
+                messageBox.classList.remove('bg-green-700');
+                messageBox.classList.add('bg-red-700');
+            } else {
+                messageBox.classList.remove('bg-red-700');
+                messageBox.classList.add('bg-green-700');
+            }
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 5000);
+        }
+
+        // Smooth scrolling for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // "Back to Top" button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        const showButton = () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.transform = 'translateY(0)';
+            } else {
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.transform = 'translateY(40px)';
+            }
+        };
+        window.addEventListener('scroll', showButton);
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Gemini API integration for project idea generation
+        const generateButton = document.getElementById('generate-button');
+        const ideaPrompt = document.getElementById('idea-prompt');
+        const generatedIdea = document.getElementById('generated-idea');
+        const ideaOutput = document.getElementById('idea-output');
+        const loadingSpinner = document.getElementById('loading-spinner');
+
+        generateButton.addEventListener('click', async () => {
+            const prompt = ideaPrompt.value.trim();
+
+            if (prompt === "") {
+                showMessage("Please enter a description to generate an idea.", true);
+                return;
+            }
+
+            // Show loading state
+            generateButton.disabled = true;
+            loadingSpinner.classList.remove('hidden');
+            ideaOutput.classList.add('hidden');
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: `As a senior product manager and software developer, generate a short, creative, and feasible project idea for a portfolio. Base the idea on the user's provided interest. Provide a title, a brief description of its features, and a short, clear technology stack recommendation, including mobile, backend, and database technologies. Format the response cleanly.
+                                User's interest: ${prompt}`
+                            }]
+                        }]
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const ideaText = result.candidates[0].content.parts[0].text;
+                generatedIdea.innerHTML = ideaText.replace(/\n/g, '<br>');
+                ideaOutput.classList.remove('hidden');
+
+            } catch (error) {
+                console.error("Error generating project idea:", error);
+                showMessage("Failed to generate an idea. Please try again later.", true);
+                generatedIdea.textContent = "An error occurred while generating the idea. Please try again.";
+                ideaOutput.classList.remove('hidden');
+            } finally {
+                // Hide loading state
+                generateButton.disabled = false;
+                loadingSpinner.classList.add('hidden');
+            }
+        });
+    </script>
+
+</body>
+</html>
