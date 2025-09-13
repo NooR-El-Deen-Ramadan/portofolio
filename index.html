@@ -309,30 +309,6 @@
             </div>
         </section>
 
-        <!-- Project Idea Generator -->
-        <section id="project-idea" class="py-20 md:py-32 px-4 md:px-8 w-full">
-            <div class="animate-fade-in max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-gradient-blue">✨ Project Idea Generator</h2>
-                <div class="bg-gray-800 rounded-xl p-8 md:p-12 shadow-2xl card-hover">
-                    <p class="text-lg text-gray-300 mb-6">
-                        Need inspiration? Describe a type of project you're interested in, and let's see what the AI can come up with!
-                    </p>
-                    <textarea id="idea-prompt" rows="4" class="w-full p-4 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:border-blue-400 focus:outline-none transition-colors duration-300" placeholder="e.g., A mobile app for gardeners, a web tool for remote teams, a desktop game"></textarea>
-                    <button id="generate-button" class="mt-6 px-8 py-3 text-lg font-bold rounded-full transition-all duration-300 border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 shadow-lg hover:shadow-xl">
-                        ✨ Generate Idea
-                    </button>
-                    <div id="loading-spinner" class="mt-4 hidden">
-                        <i class="fa-solid fa-spinner fa-spin text-blue-400 text-2xl"></i>
-                        <span class="ml-2 text-blue-400">Generating idea...</span>
-                    </div>
-                    <div id="idea-output" class="mt-8 p-6 bg-gray-900 rounded-xl border border-blue-400 text-gray-200 hidden">
-                        <p class="font-semibold text-lg text-gradient-blue mb-2">Here's a project idea for you:</p>
-                        <p id="generated-idea"></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Call to Action Section -->
         <section id="cta" class="py-20 md:py-32 text-center px-4 md:px-8 w-full">
             <div class="animate-fade-in max-w-4xl mx-auto px-4">
@@ -383,10 +359,6 @@
 
     <!-- JavaScript for dynamic features -->
     <script>
-        // API key and URL for the Gemini API
-        const API_KEY = "";
-        const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=" + API_KEY;
-
         // Custom message box function to avoid alert()
         function showMessage(text, isError = false) {
             const messageBox = document.getElementById('message-box');
@@ -432,63 +404,6 @@
                 top: 0,
                 behavior: 'smooth'
             });
-        });
-
-        // Gemini API integration for project idea generation
-        const generateButton = document.getElementById('generate-button');
-        const ideaPrompt = document.getElementById('idea-prompt');
-        const generatedIdea = document.getElementById('generated-idea');
-        const ideaOutput = document.getElementById('idea-output');
-        const loadingSpinner = document.getElementById('loading-spinner');
-
-        generateButton.addEventListener('click', async () => {
-            const prompt = ideaPrompt.value.trim();
-
-            if (prompt === "") {
-                showMessage("Please enter a description to generate an idea.", true);
-                return;
-            }
-
-            // Show loading state
-            generateButton.disabled = true;
-            loadingSpinner.classList.remove('hidden');
-            ideaOutput.classList.add('hidden');
-
-            try {
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        contents: [{
-                            parts: [{
-                                text: `As a senior product manager and software developer, generate a short, creative, and feasible project idea for a portfolio. Base the idea on the user's provided interest. Provide a title, a brief description of its features, and a short, clear technology stack recommendation, including mobile, backend, and database technologies. Format the response cleanly.
-                                User's interest: ${prompt}`
-                            }]
-                        }]
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const result = await response.json();
-                const ideaText = result.candidates[0].content.parts[0].text;
-                generatedIdea.innerHTML = ideaText.replace(/\n/g, '<br>');
-                ideaOutput.classList.remove('hidden');
-
-            } catch (error) {
-                console.error("Error generating project idea:", error);
-                showMessage("Failed to generate an idea. Please try again later.", true);
-                generatedIdea.textContent = "An error occurred while generating the idea. Please try again.";
-                ideaOutput.classList.remove('hidden');
-            } finally {
-                // Hide loading state
-                generateButton.disabled = false;
-                loadingSpinner.classList.add('hidden');
-            }
         });
     </script>
 
