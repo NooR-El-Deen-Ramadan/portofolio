@@ -105,9 +105,10 @@
         <section id="home" class="min-h-screen flex items-center justify-center text-left px-4 md:px-8">
             <div class="animate-fade-in max-w-4xl mx-auto w-full">
                 <!-- Wrapper for the name, subtitle, and image -->
-                <div class="flex flex-col md:flex-row items-start md:items-center justify-between">
+                <!-- Centered content on mobile, left-aligned on larger screens -->
+                <div class="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between text-center md:text-left">
                     <!-- Text content (name and subtitle) -->
-                    <div>
+                    <div class="order-2 md:order-1">
                         <p class="text-lg text-blue-400 mb-2">Hi, my name is</p>
                         <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-gradient-blue">
                             Noor El Deen Ramadan.
@@ -117,14 +118,14 @@
                         </h2>
                     </div>
                     <!-- Profile picture -->
-                    <div class="mt-8 md:mt-0 md:ml-8 md:pt-16">
-                        <img class="w-32 h-32 rounded-full border-2 border-blue-400 object-cover" src="https://raw.githubusercontent.com/NooR-El-Deen-Ramadan/portofolio/main/165521766.jpg" alt="Noor El Deen Ramadan's personal avatar">
+                    <div class="order-1 md:order-2 mb-8 md:mb-0 md:ml-8 pt-0 md:pt-16">
+                        <img class="w-32 h-32 rounded-full border-2 border-blue-400 object-cover mx-auto" src="https://raw.githubusercontent.com/NooR-El-Deen-Ramadan/portofolio/main/165521766.jpg" alt="Noor El Deen Ramadan's personal avatar">
                     </div>
                 </div>
-                <p class="text-lg max-w-2xl text-gray-400 mt-8">
+                <p class="text-lg max-w-2xl text-gray-400 mt-8 mx-auto md:mx-0 text-center md:text-left">
                     I'm a software engineer specializing in building high-quality mobile and web applications. Currently, I'm focused on crafting exceptional user experiences and robust, scalable solutions.
                 </p>
-                <div class="mt-8">
+                <div class="mt-8 text-center md:text-left">
                     <a href="#projects" class="inline-block px-8 py-3 text-lg font-bold rounded-full transition-all duration-300 border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 shadow-lg hover:shadow-xl">
                         Check out my work!
                     </a>
